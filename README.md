@@ -19,6 +19,11 @@
 
 Machine unlearning is a promising paradigm for removing unwanted data samples from a trained model, towards ensuring compliance with privacy regulations and limiting harmful biases. Although unlearning has been shown in, e.g., classification and recommendation systems, its potential in medical image-to-image translation, specifically in image recon-struction, has not been thoroughly investigated. This paper shows that machine unlearning is possible in MRI tasks and has the potential to benefit for bias removal. We set up a protocol to study how much shared knowledge exists between datasets of different organs, allowing us to effectively quantify the effect of unlearning. Our study reveals that combining training data can lead to hallucinations and reduced image quality in the reconstructed data. We use unlearning to remove hallucinations as a proxy exemplar of undesired data removal. Indeed, we show that machine unlearning is possible without full retraining. Furthermore, our observations indicate that maintaining high performance is feasible even when using only a subset of retain data. We have made our code publicly accessible.
 
+## Data Split
+
+(Update on Nov, 2025)
+This project is working on [fastmri](https://fastmri.org/), you need to obtain the permission from its website.
+The data split I used is in `data/tree.txt` as I only got read permission now. Please parse it on your own and most of the unlearning related split are in `multi_` directories.
 
 ## Installation
 
@@ -60,10 +65,10 @@ Train model with default configuration
 
 ```bash
 # train on CPU
-python src/train.py trainer=cpu
+python src/train_varnet.py trainer=cpu
 
 # train on GPU
-python src/train.py trainer=gpu
+python src/train_varnet.py trainer=gpu
 ```
 
 Train model with chosen experiment configuration from [configs/experiment/](configs/experiment/)
